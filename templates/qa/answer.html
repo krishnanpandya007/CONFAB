@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+
+<div class="card my-4">
+          <h5 class="card-header ">Leave an Answer</h5>
+          <div class="card-body">
+
+              <form class="uniForm" method="post" action="http://{{request.get_host}}/question/{{qn_id}}/">
+                  {% csrf_token %}
+                  {% crispy ans_form ans_form.helper %}
+              </form>
+
+          </div>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/signin.css' %}">
+    <link rel="icon" href="{% static 'images/Logo.png' %}" type="image/x-icon">
+
+    {% block headercontent %}
+    {% endblock headercontent %}
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+ <body> 
+     
+ {% for message in messages %}
+    {% if message.tags == "error" %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% else %}
+    
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+ {% endfor %}
+
+    <header class="header__main">
+
+        {% comment %} <h2 onclick="()=>{window.location.href='http://127.0.0.1:8000/';}""><span>C</span>onfab</h2> {% endcomment %}
+        {% comment %} <a href="http://127.0.0.1:8000/" style="text-decoration: none;display: block;"> {% endcomment %}
+
+            <h2 onclick="(function(){ window.location.href = 'http://127.0.0.1:8000/'; })();" style="cursor: pointer;"><span>C</span>onfab</h2>
+
+        {% comment %} </a> {% endcomment %}
+        <div style="display: flex;align-items: center;gap:0.6rem;justify-content: space-evenly;">
+            {% block header_menu %}
+            {% endblock header_menu %}
+        </div>
+    </header>
+    <svg preserveAspectRatio="none" width="100vw" height="130" viewBox="0 0 1920 194" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100vw" height="130" fill="white"/>
+        <path d="M514.224 99.3881C607.024 80.3874 696.88 46.3306 789.424 25.6747C921.248 -3.76844 1058.53 -5.547 1190.14 24.9879C1318.05 54.5895 1450.67 126.789 1577.06 163.469C1689.14 196.012 1811.5 209.412 1920 168.752V0H0V48.162C163.945 116.582 341.781 134.298 514.224 99.3881Z" fill="#EDF2F6"/>
+    </svg>
+
+    {% block content %}
+
+    {% endblock %} 
+
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+      
+  </body>
+</html>

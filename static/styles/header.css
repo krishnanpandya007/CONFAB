@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Poppins:wght@100;300;400;500;700&family=Roboto:wght@100;300&display=swap');
+
+
+
+.header__main {
+
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    background-color: #EDF2F6;
+}
+
+.header__main h2{
+
+    font-family: 'Jockey One', sans-serif;
+    color: #5C5C5C;
+
+}
+
+.header__main span{
+    font-size: 3rem;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #00C897;
+}
+
+a#direct-link{
+    background-color: #00C897;
+    font-family: 'Poppins';
+    padding: 0.7rem 1.4rem;
+    font-weight: 400;
+    border-radius: 10px;
+    color: #fff !important;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    cursor: pointer;
+    
+    transform: scale(1.02);
+}

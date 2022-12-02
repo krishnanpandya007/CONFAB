@@ -1,0 +1,128 @@
+.posts__container{
+    width: clamp(280px, 45vw, 1000px);
+}
+
+.post__main{
+    border: 1px solid #EDF2F6;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 8%;
+    position: relative;
+}
+
+*{
+    font-family: Poppins;
+}
+.post__about{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.post__about h2{
+
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+.post__about > p {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #979797;
+}
+
+.post__expand{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.post__answer{
+    position: absolute !important;
+    right: 2rem;
+    display: block !important;
+    bottom: 0;
+}
+.post__answer:hover {
+    cursor: pointer;
+}
+
+.search_input{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+
+}
+
+.widget__main{
+    width: clamp(300px, 21vw, 400px);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.widget__questions{
+    padding: 1rem;
+    border-radius: 10px;
+     background-color: #EDF2F6;
+    margin-top: 2rem !important;
+
+}
+
+.widget__questions  p ,a{
+    font-size: 0.9rem;
+    width: 100% !important;
+    text-align: left !important;
+    text-decoration: underline;
+    color: #00C897 !important;
+}
+
+
+
+.widget__catagory{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    gap: 0.5rem;
+
+}
+
+.widget__catagory button{
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    background-color: #EDF2F6;
+    border: none;
+    flex: 1;
+    padding: 0.7rem 1rem;
+
+}
+
+.search_input input{
+
+    padding: 0.7rem 1.4rem;
+    border: none;
+    outline-color: #00C897;
+    background-color: #EDF2F6;
+    border-radius: 100px;
+
+}
+
+.search_icon{
+    border: none;
+    height: calc(1.4rem + 2.5ch);
+    aspect-ratio: 1;
+    border-radius: 100px;
+    display: grid;
+    place-items: center;
+    background-color: #00C897;
+}

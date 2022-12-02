@@ -1,0 +1,67 @@
+{#show all categories#}
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block creation %}
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+
+        <!-- category -->
+        <h1 class="mt-4"></h1>
+        <div class="row">
+            <div class="col-lg-10">
+                <ul class="list-group list-group-flush">
+
+                    {% for c in categories %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{{ c.get_url }}">{{ c.name }}
+                            <span class="badge badge-primary badge-pill">{{ c.get_number }}</span></a>
+
+                        <div class="text-right">
+                            <form action="{% url 'delete' obj_type='c' o_id=c.id %}" class="btn btn-sm" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" />
+                            </form>
+
+                            <a class="btn btn-outline-success btn-sm"
+                                href="{% url 'edit' obj_type='c' o_id=c.id %}">Edit</a>
+                        </div>
+
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% include 'right_bar.html' %}
+
+</div>
+
+{% if categories.has_other_pages %}
+<nav aria-label="Page navigation" class="col-lg-6 offset-lg-3 py-5 d-flex">
+    <ul class="pagination mx-auto">
+        {% if categories.has_previous %}
+        <li class="page-item"><a class="page-link" href="{{ paginator.baseurl }}{{ categories.previous_page_number }}">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="{{ paginator.baseurl }}{{ categories.previous_page_number }}">{{ categories.previous_page_number }}</a>
+        </li>
+        {% endif %}
+        <li class="page-item active"><a class="page-link" href="#">{{ categories.number }}</a></li>
+        {% if categories.has_next %}
+        <li class="page-item"><a class="page-link" href="{{ paginator.baseurl }}{{ categories.next_page_number }}">{{ categories.next_page_number }}</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="{{ paginator.baseurl }}{{ categories.next_page_number }}">Next</a></li>
+    </ul>
+</nav>
+{% endif %}
+{% endif %}
+
+
+{% endblock %}

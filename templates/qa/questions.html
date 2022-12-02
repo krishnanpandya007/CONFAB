@@ -1,0 +1,203 @@
+{% extends 'components/header.html' %}
+
+{% load static %}
+
+{% block headercontent %}
+<link rel="stylesheet" href="{% static 'styles/home.css' %}">
+<title>Home - Confab</title>
+
+{% endblock headercontent %}
+
+{% block header_menu %}
+    <a href="/about#what-is-confab" id="direct-link" data-bs-toggle="modal" data-bs-target="#exampleModal-1" data-bs-whatever="@mdo" > Add Post</a>
+    <div class="dropdown">
+        <button id="greetings__button" style="padding: 0.7rem 1rem;background-color: white; color: #00C897;border: none; font-family: Poppins;" class="nav_greeting_btn btn shadow-none btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Bonjour, Smarty
+
+            
+        </button>
+        <ul class="dropdown-menu" style="width: 100%;">
+          <li><a class="dropdown-item" href="{% url 'qa:activity' auth_id=request.user.id %}">My Activity</a></li>
+          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </div>  
+{% endblock header_menu %}
+
+{% block content %}
+
+    <center style="display: flex;justify-content: center;flex-wrap: wrap;gap: 15vw;">
+        <div class="posts__container">
+            {% for question in questions %}
+
+            <div class="post__main">
+                <div class="post__about">
+                    <h2>{{ question.title }}</h2>
+                    <p>{{ question.author.account.get_formatted }}</p>
+
+                </div>
+                <p style="text-align: left;font-family: Poppins;font-weight: 300;font-size: 0.9rem;color: #686868;padding-top: 1rem;">{{ question.text|safe|truncatewords:"40" }}</p>
+                <div class="post__expand">
+                    <a href="http://{{request.get_host}}/question/{{question.id}}" style="font-size: 0.75rem;color: #00C897">Read more...</a>
+                    <div style="display: flex;align-items: center;">
+                        <svg width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.78692 4.70496C6.9839 4.70496 4.70496 6.98718 4.70496 9.81064C4.70496 12.7633 6.41908 15.8336 8.7451 18.6704C10.7879 21.162 13.1893 23.3404 15 24.9556C16.8108 23.3404 19.2122 21.162 21.255 18.6704C23.581 15.8336 25.2952 12.7633 25.2952 9.81064C25.2952 6.98718 23.0162 4.70496 20.2132 4.70496C18.5412 4.70496 17.6379 5.28646 17.0794 5.91686C16.5575 6.5059 16.2925 7.17132 16.05 7.77986C16.0078 7.8858 15.9663 7.99002 15.9242 8.09182C15.7696 8.46588 15.4048 8.70988 15 8.70988C14.5953 8.70988 14.2305 8.4659 14.0759 8.09184C14.0338 7.99002 13.9922 7.88578 13.95 7.7798C13.7076 7.17128 13.4425 6.50588 12.9207 5.91686C12.3622 5.28646 11.4589 4.70496 9.78692 4.70496ZM2.70496 9.81064C2.70496 5.88996 5.872 2.70496 9.78692 2.70496C12.0168 2.70496 13.4701 3.52098 14.4177 4.5906C14.6412 4.84294 14.8337 5.10764 15 5.3709C15.1664 5.10764 15.3588 4.84294 15.5824 4.5906C16.53 3.52098 17.9833 2.70496 20.2132 2.70496C24.128 2.70496 27.2952 5.88996 27.2952 9.81064C27.2952 13.4808 25.2026 17.0102 22.8016 19.9385C20.5272 22.7124 17.8439 25.1016 16.012 26.7328C15.8929 26.8388 15.7774 26.9418 15.6658 27.0412C15.2865 27.3798 14.7136 27.3798 14.3343 27.0412C14.2227 26.9418 14.1072 26.8388 13.9881 26.7328C12.1562 25.1016 9.47282 22.7124 7.19852 19.9385C4.79744 17.0102 2.70496 13.4808 2.70496 9.81064Z" fill="black"/>
+                        </svg>
+                        &nbsp;{{ question.rating }}
+                    </div>
+                </div>
+                <p data-bs-toggle="modal" data-bs-target="#exampleModal{{question.id}}" data-bs-whatever="@mdo" class="post__answer" style="position: absolute;bottom: -4rem;right: 0;font-size: 0.8rem;padding: 0.4rem 0.7rem;border-radius: 8px;background-color: #00C89720;">Answer</a>
+            </div>
+            <br>
+
+            {% endfor %}
+        </div>
+        <div class="widget__main" style="margin-top: calc(5% - 1rem)">
+            <div class="search_input">
+                <input placeholder="Search Posts..." type="search" id="search_input" >
+                <button class="search_icon" onclick="handleSearchClick()">
+                    <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.0909 16.3636C29.0909 23.3927 23.3927 29.0909 16.3636 29.0909C9.33455 29.0909 3.63636 23.3927 3.63636 16.3636C3.63636 9.33455 9.33455 3.63636 16.3636 3.63636C23.3927 3.63636 29.0909 9.33455 29.0909 16.3636ZM26.5776 29.1487C23.7782 31.3884 20.2273 32.7273 16.3636 32.7273C7.32625 32.7273 0 25.401 0 16.3636C0 7.32625 7.32625 0 16.3636 0C25.401 0 32.7273 7.32625 32.7273 16.3636C32.7273 20.2273 31.3884 23.7782 29.1487 26.5776L39.4676 36.896C40.1775 37.6062 40.1775 38.7575 39.4676 39.4676C38.7575 40.1775 37.6062 40.1775 36.896 39.4676L26.5776 29.1487Z" fill="#EEEEEE"/>
+                    </svg>
+                        
+                </button>
+            </div>
+            <div class="widget__catagory">
+                {% if is_all %}
+                <button onclick="handleMyUniFilter()">
+                    MY UNIVERSITY
+                </button>
+                {% else %}
+                <button style="border: 3px solid #00C897;" onclick="handleMyUniFilter()">
+                    MY UNIVERSITY
+                </button>
+
+                {% endif %}
+
+                {% if is_all %}
+                <button style="border: 3px solid #00C897;"  onclick="handleAllUniFilter()">
+                    ALL UNIVERSITIES
+                </button>
+                {% else %}
+                <button onclick="handleAllUniFilter()">
+                    ALL UNIVERSITIES
+                </button>
+
+                {% endif %}
+
+
+                
+            </div>
+
+            <div class="widget__questions">
+
+                <h2 style="border-bottom: 2px solid #00C897;font-size: 1.2rem;text-align: left;padding-bottom: 0.5rem;">You'd also like to see...</h2>
+                    {% for t in top %}
+                        <a style="margin-top: 1.3rem;width: 100%" href="{% url 'qa:question' qn_id=t.id %}">{{t.title}}</a>
+                        <br>
+                    {% endfor %}
+
+
+            </div>
+
+        </div>
+    </center>
+
+    {% for question in questions %}
+        <div class="modal fade " id="exampleModal{{question.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shout in your Answer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form method="post" onsubmit="alert('Comment Added')" action="http://{{request.get_host}}/question/{{question.id}}/">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <label for="message-text" class="col-form-label" >Type in:</label>
+                    <textarea class="form-control" id="message-text" name="text"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit Answer</a>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+      {% endfor %}
+      <div class="modal fade " id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">AddPost</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" onsubmit="alert('Post published successfully')" action="http://{{request.get_host}}/ask/">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Title:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="title">
+                </div>
+        
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label" >Description:</label>
+                  <textarea class="form-control" id="message-text" name="text"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Publish Post</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+<script>
+    
+    function handleMyUniFilter(){
+
+
+        let my_uni = "{{request.user.account.university}}"
+        window.location.href = "http://{{request.get_host}}/?college_filter=" + my_uni
+
+
+    }
+
+    function handleAllUniFilter(){
+
+
+        window.location.href = "http://{{request.get_host}}/#" 
+
+
+    }
+
+    function handleSearchClick() {
+
+        let searchQuery = document.getElementById('search_input')
+        window.location.href = "http://{{request.get_host}}/?search=" + searchQuery.value
+
+    }
+        
+    function generateRandomGreeting(node){
+
+        let initial = ["Hello", "Bonjour", "Howdy", "Heya", "Yo"]
+        let last = ["Mate", "Student", "Smarty", "Brainy", "Buddy"]
+
+        let initialFinal = initial[Math.floor(Math.random()*initial.length)];
+        let lastFinal = last[Math.floor(Math.random()*last.length)];
+
+        node.innerText = initialFinal + ", " + lastFinal;
+
+
+    }
+
+    let target_button = document.getElementById('greetings__button')
+
+    generateRandomGreeting(target_button)
+
+</script>
+
+{% endblock content %}

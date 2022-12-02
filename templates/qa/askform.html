@@ -1,0 +1,22 @@
+{# This is to create new questions #}
+
+{% extends "base.html" %}
+
+{% block title %}Create New Question{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+    <form class="form-horizontal" method="POST">
+
+     {{ form|crispy }}
+     {% csrf_token %}
+
+    <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+    </form>
+
+{% endblock %}

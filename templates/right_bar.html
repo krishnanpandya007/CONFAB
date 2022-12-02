@@ -1,0 +1,46 @@
+   <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search by keywords</h5>
+            <div class="card-body">
+                <form id="searchform" method="GET" action="{% url 'qa:home' %}">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="submit">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header"><a href="{% url 'qa:categories' %}">Categories</a></h5>
+          <div class="card-body">
+              <ul class="list-group list-group-flush">
+                  {% for c in top_categories %}
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="{% url 'qa:category' a_id=c.id %}">{{ c.name }}&nbsp;
+                          <span class="badge badge-primary badge-pill">{{ c.num_questions }}</span></a></li>
+                  {% endfor %}
+              </ul>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+        <h5 class="card-header"><a href="{% url 'qa:popular' %}">Popular Questions</a></h5>
+          <div class="card-body">
+               <ul class="list-group list-group-flush">
+                   {% for t in top %}
+                       <li class="list-group-item d-flex justify-content-between align-items-center">
+                       <a href="{% url 'qa:question' qn_id=t.id %}">{{ t.title }}</a></li>
+                   {% endfor %}
+               </ul>
+          </div>
+        </div>
+
+</div>

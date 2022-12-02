@@ -1,0 +1,74 @@
+
+{% extends 'components/header.html' %}
+
+
+{% block content %}
+<center>
+    <!-- <div class="blob_1"> -->
+        <svg class="blob_1" width="146" height="150" viewBox="0 0 146 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 75C0 18.75 18.214 0 72.8558 0C127.498 0 145.712 18.75 145.712 75C145.712 131.25 127.498 150 72.8558 150C18.214 150 0 131.25 0 75Z" fill="#00C897"/>
+        </svg>
+
+        <svg class="blob_2" width="326" height="334" viewBox="0 0 326 334" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.577271 167C0.577271 41.75 41.2551 0 163.289 0C285.322 0 326 41.75 326 167C326 292.25 285.322 334 163.289 334C41.2551 334 0.577271 292.25 0.577271 167Z" fill="#00D19E"/>
+        </svg>
+        <svg class="blob_3" width="436" height="418" viewBox="0 0 436 418" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M67.1589 144.614C83.9486 108.46 247.449 48.2897 285.159 64.3862C322.869 80.4828 385.631 237.233 368.841 273.386C352.052 309.54 188.552 369.71 150.841 353.614C113.131 337.517 50.3692 180.767 67.1589 144.614Z" fill="#FADB5F"/>
+        </svg>
+        
+        <svg class="blob_4" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M46.2102 103.79C57.7628 77.8423 170.263 34.6576 196.21 46.2102C222.158 57.7627 265.342 170.263 253.79 196.21C242.237 222.158 129.737 265.342 103.79 253.79C77.8424 242.237 34.6577 129.737 46.2102 103.79Z" fill="#EF4E4E"/>
+        </svg>
+        
+            
+            
+
+    <!-- </div> -->
+    <div class="blob_2"></div>
+    <div class="signin__main">
+        <h1>Let&apos;s Connect!</h1>
+        <form action="{% url 'signin' %}" method="post">
+            {% csrf_token %}
+            <div class="user_pass_main">
+                <label >
+                    <br>
+                    Email
+                    <br>
+                    <input id="user_email" name="email" type="email"  required>
+                </label>
+                <label >
+                    <br>
+                    Password
+                    <br>
+
+                    <input id="user_password" name="password" type="password" minlength="8" required>
+                </label>
+    
+            </div>
+            <div style="width: 100%;text-align: left;">
+
+                <a href="{% url 'forgot_password' %}">Forgot Password?</a>
+            </div>
+            <br>
+            <br>
+
+            <div style="width: 100%;text-align: right;">
+
+                    <button type="submit">Connect &nbsp;</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <span>Don&apos;t already have an account? </span><a href="{% url 'verify_email' %}">create one</a>
+
+    </div>
+
+</center>
+{% endblock content %}
+
+
+
