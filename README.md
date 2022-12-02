@@ -26,7 +26,7 @@ bla bla bla...
 
 ## Author
 
-👤 **Krishnan Pandya**
+👤 **Krishnan Pandya(mvp)**
 
 * Website: www.spadebeta.in 
 * Twitter: [@krishnan_pandya](https://twitter.com/krishnan_pandya)
