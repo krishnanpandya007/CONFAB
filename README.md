@@ -26,10 +26,50 @@ bla bla bla...
 
 ## Author
 
-👤 **Krishnan Pandya(MVP)**
+👤 **Krishnan Pandya**
 
 * Website: www.spadebeta.in 
 * Twitter: [@krishnan_pandya](https://twitter.com/krishnan_pandya)
 * Github: [@krishnanpandya007](https://github.com/krishnanpandya007)
 * LinkedIn:[@Krishnan Pandya](https://www.linkedin.com/in/krishnan-pandya-685950237/)
 
+
+
+
+👤 **Ayush Luhar**
+
+* Website: www.spadebeta.in
+* Twitter: [@ayushjluhar](https://twitter.com/ayushjluhar)
+* Github: [@13Aluminium](https://github.com/13Aluminium)
+* LinkedIn:[@Ayush Luhar](https://www.linkedin.com/in/ayush-luhar-532698228/)
+
+
+
+👤 **Jash Karangiya**
+
+* Website: www.spadebeta.in
+* Twitter: [@JashKarangiya](https://twitter.com/JashKarangiya)
+* Github: [@jashkarangiya](https://github.com/jashkarangiya)
+* LinkedIn:[@Jash Karangiya](https://www.linkedin.com/in/jash-karangiya-2802aa228/)
+
+
+
+👤 **Jinesh Dolia**
+
+* Website: www.spadebeta.in
+<!-- * Twitter: [@](https://twitter.com/krishnan_pandya) -->
+<!-- * Github: [@krishnanpandya007](https://github.com/krishnanpandya007) -->
+* LinkedIn:[@Jinesh Dolia](https://www.linkedin.com/in/jinesh-dolia-875706233/)
+
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+
+## License
+
+MIT © [confab](https://github.com/confab)
