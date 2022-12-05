@@ -15,10 +15,13 @@
 > Chatroom for students, Chatroom for Anynimouty 
 
 #### Purpose
-When you go on asd..... 
+People from the prehistoric era has liked to use freedom of speech but in this modern world it might not be entirely possible without hurting others feeling that might affect a certain person's relations with another person.
+So our goal is to create a system that doesn’t reveal the person’s identity while he can chat with his peers, seniors, juniors without formally greeting them. Introvert people who cannot speak with other people directly or have problem expressing their concerns can use this Web App to its full potential. 
 
 #### So whats the possible solution??
-bla bla bla...
+First of all, CONFAB provides anonymity but also provides basic information to know the designation or department thus confirming the authenticity
+Secure sign in feature, User can only sign in through their organization email.
+CONFAB provides a stock and clear user interface.
 
 
 ### Join Community
