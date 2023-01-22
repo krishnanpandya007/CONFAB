@@ -15,14 +15,14 @@
 > Chatroom for students, Chatroom for Anynimouty 
 
 #### Purpose
-When you go on asd..... 
+To reduce the communication gap of student with complete anonymity. 
 
 #### So whats the possible solution??
-bla bla bla...
+CONFAB is a platform where a person of specific organization can login through the email account provided by that organization, which will lead to an open question and answer platform of that specific organization. User can ask question on that forum anonymously, only his/her designation or post will be displayed so that a user can ask question freely knowing that his/her identity will not be revealed. The problem with existing technology is that it doesn’t provide anonymity. So we have tried to create a platform that caters to our needs as well as protect our identity.
 
 
 ### Join Community
-[CONFAB Official](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[CONFAB Official]
 
 ## Author
 
