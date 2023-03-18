@@ -26,7 +26,7 @@ CONFAB is a platform where a person of specific organization can login through t
 
 ## Author
 
-👤 **Krishnan Pandya(mvp)**
+👤 **Krishnan Pandya**
 
 * Website: www.spadebeta.in 
 * Twitter: [@krishnan_pandya](https://twitter.com/krishnan_pandya)
